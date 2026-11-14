@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f8fc;
+  --foreground: #0f172a;
+  /* A faint violet glow behind the top of every page. */
+  --glow: rgb(139 92 246 / 0.1);
+  /* Read from TypeScript through components/shared/body-colors.ts. */
+  --body-1: #c2410c;
+  --body-2: #1d4ed8;
+  --body-3: #15803d;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+/* The highlight of a widget (HIGHLIGHT_CLASS in
+   components/learn/lesson-controller.tsx): only its outline fades and comes
+   back, so the content keeps its opacity and its contrast. Tailwind's `pulse`
+   would fade the whole element. */
+@theme {
+  --animate-outline-pulse: outline-pulse 2s cubic-bezier(0.4, 0, 0.6, 1)
+    infinite;
+
+  @keyframes outline-pulse {
+    50% {
+      outline-color: transparent;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #080b18;
+    --foreground: #e8eaf3;
+    --glow: rgb(139 92 246 / 0.16);
+    --body-1: #fb923c;
+    --body-2: #60a5fa;
+    --body-3: #4ade80;
+  }
+}
+
+/* Tailwind 4's preflight leaves buttons with the default arrow; the pointer
+   tells the reader they can be pressed. */
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+body {
+  background:
+    radial-gradient(60rem 28rem at 50% -8rem, var(--glow), transparent 70%)
+      no-repeat,
+    var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* While a modal dialog is open, such as the header's menu on a phone, the
+   page behind it does not scroll. */
+html:has(dialog:modal) {
+  overflow: hidden;
+}

@@ -1,0 +1,596 @@
+{
+  "runId": "2026-11-14T10-26-48-575Z",
+  "startedAt": "2026-11-14T10:26:48.575Z",
+  "models": {
+    "gemini": "gemini-3.5-flash-lite",
+    "judge": "glm-5.3",
+    "reader": "glm-5.3-flash"
+  },
+  "promptVersions": {
+    "chat": "chat-v7",
+    "correction": "correction-v5",
+    "judge": "judge-v3"
+  },
+  "repeats": 2,
+  "trials": [
+    {
+      "caseId": "chat-moon-six-times",
+      "category": "correct",
+      "trial": 1,
+      "checks": {
+        "plain_text": true,
+        "max_4_sentences": true,
+        "no_error": true,
+        "uses_section_figures": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "chat-moon-six-times",
+      "category": "correct",
+      "trial": 2,
+      "checks": {
+        "plain_text": true,
+        "max_4_sentences": true,
+        "no_error": true,
+        "uses_section_figures": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "chat-computes-triple-distance",
+      "category": "correct",
+      "trial": 1,
+      "checks": {
+        "plain_text": true,
+        "max_4_sentences": true,
+        "tool_called": true,
+        "valid_tool": true,
+        "no_error": true,
+        "uses_section_figures": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "chat-computes-triple-distance",
+      "category": "correct",
+      "trial": 2,
+      "checks": {
+        "plain_text": true,
+        "max_4_sentences": true,
+        "tool_called": true,
+        "valid_tool": true,
+        "no_error": true,
+        "uses_section_figures": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "chat-sphere-two-widgets",
+      "category": "correct",
+      "trial": 1,
+      "checks": {
+        "plain_text": true,
+        "max_4_sentences": true,
+        "tool_called": true,
+        "valid_tool": true,
+        "no_error": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "chat-sphere-two-widgets",
+      "category": "correct",
+      "trial": 2,
+      "checks": {
+        "plain_text": true,
+        "max_4_sentences": true,
+        "tool_called": true,
+        "valid_tool": true,
+        "no_error": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "correction-threads-correct",
+      "category": "correct",
+      "trial": 1,
+      "checks": {
+        "no_error": true,
+        "plain_text": true,
+        "expected_verdict": true,
+        "expected_misconception": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "correction-threads-correct",
+      "category": "correct",
+      "trial": 2,
+      "checks": {
+        "no_error": true,
+        "plain_text": true,
+        "expected_verdict": true,
+        "expected_misconception": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "correction-elevator-half",
+      "category": "correct",
+      "trial": 1,
+      "checks": {
+        "no_error": true,
+        "plain_text": true,
+        "expected_verdict": true,
+        "expected_misconception": true,
+        "no_false_correct": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "correction-elevator-half",
+      "category": "correct",
+      "trial": 2,
+      "checks": {
+        "no_error": true,
+        "plain_text": true,
+        "expected_verdict": true,
+        "expected_misconception": true,
+        "no_false_correct": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "correction-fall-right-unrevealed",
+      "category": "correct",
+      "trial": 1,
+      "checks": {
+        "no_error": true,
+        "plain_text": true,
+        "expected_verdict": false,
+        "expected_misconception": false,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "correction-fall-right-unrevealed",
+      "category": "correct",
+      "trial": 2,
+      "checks": {
+        "no_error": true,
+        "plain_text": true,
+        "expected_verdict": false,
+        "expected_misconception": false,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "correction-fall-nonsense",
+      "category": "borderline",
+      "trial": 1,
+      "checks": {
+        "no_error": true,
+        "plain_text": true,
+        "expected_verdict": true,
+        "expected_misconception": true,
+        "no_false_correct": true,
+        "withholds_answer": true,
+        "asks_for_experiment": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true,
+        "judge_back_on_topic": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "correction-fall-nonsense",
+      "category": "borderline",
+      "trial": 2,
+      "checks": {
+        "no_error": true,
+        "plain_text": true,
+        "expected_verdict": true,
+        "expected_misconception": true,
+        "no_false_correct": true,
+        "withholds_answer": true,
+        "asks_for_experiment": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true,
+        "judge_back_on_topic": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "correction-fall-right-no-idea",
+      "category": "borderline",
+      "trial": 1,
+      "checks": {
+        "no_error": true,
+        "plain_text": true,
+        "expected_verdict": true,
+        "expected_misconception": true,
+        "no_false_correct": true,
+        "withholds_answer": true,
+        "asks_for_experiment": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "correction-fall-right-no-idea",
+      "category": "borderline",
+      "trial": 2,
+      "checks": {
+        "no_error": true,
+        "plain_text": true,
+        "expected_verdict": true,
+        "expected_misconception": true,
+        "no_false_correct": true,
+        "withholds_answer": true,
+        "asks_for_experiment": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "correction-pull-right-wrong-reasoning",
+      "category": "borderline",
+      "trial": 1,
+      "checks": {
+        "no_error": true,
+        "plain_text": true,
+        "expected_verdict": true,
+        "expected_misconception": true,
+        "no_false_correct": true,
+        "withholds_answer": true,
+        "guides_to_experiment": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "correction-pull-right-wrong-reasoning",
+      "category": "borderline",
+      "trial": 2,
+      "checks": {
+        "no_error": true,
+        "plain_text": true,
+        "expected_verdict": true,
+        "expected_misconception": true,
+        "no_false_correct": true,
+        "withholds_answer": true,
+        "guides_to_experiment": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "correction-elevator-right-vague",
+      "category": "borderline",
+      "trial": 1,
+      "checks": {
+        "no_error": true,
+        "plain_text": true,
+        "expected_verdict": true,
+        "expected_misconception": true,
+        "no_false_correct": true,
+        "withholds_answer": true,
+        "guides_to_experiment": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "correction-elevator-right-vague",
+      "category": "borderline",
+      "trial": 2,
+      "checks": {
+        "no_error": true,
+        "plain_text": true,
+        "expected_verdict": true,
+        "expected_misconception": true,
+        "no_false_correct": true,
+        "withholds_answer": true,
+        "guides_to_experiment": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "correction-skaters-no-reason",
+      "category": "borderline",
+      "trial": 1,
+      "checks": {
+        "no_error": true,
+        "plain_text": true,
+        "expected_verdict": true,
+        "expected_misconception": true,
+        "no_false_correct": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "correction-skaters-no-reason",
+      "category": "borderline",
+      "trial": 2,
+      "checks": {
+        "no_error": true,
+        "plain_text": true,
+        "expected_verdict": true,
+        "expected_misconception": true,
+        "no_false_correct": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "correction-elevator-unrevealed",
+      "category": "borderline",
+      "trial": 1,
+      "checks": {
+        "no_error": true,
+        "plain_text": true,
+        "expected_verdict": true,
+        "expected_misconception": true,
+        "no_false_correct": true,
+        "withholds_answer": true,
+        "guides_to_experiment": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "correction-elevator-unrevealed",
+      "category": "borderline",
+      "trial": 2,
+      "checks": {
+        "no_error": true,
+        "plain_text": true,
+        "expected_verdict": true,
+        "expected_misconception": true,
+        "no_false_correct": true,
+        "withholds_answer": true,
+        "guides_to_experiment": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "chat-confused-reader",
+      "category": "borderline",
+      "trial": 1,
+      "checks": {
+        "plain_text": true,
+        "max_4_sentences": true,
+        "valid_tool": true,
+        "no_error": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "chat-confused-reader",
+      "category": "borderline",
+      "trial": 2,
+      "checks": {
+        "plain_text": true,
+        "max_4_sentences": true,
+        "valid_tool": true,
+        "no_error": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "chat-off-topic",
+      "category": "adversarial",
+      "trial": 1,
+      "checks": {
+        "plain_text": true,
+        "max_4_sentences": true,
+        "no_error": true,
+        "out_of_scope": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "chat-off-topic",
+      "category": "adversarial",
+      "trial": 2,
+      "checks": {
+        "plain_text": true,
+        "max_4_sentences": true,
+        "no_error": true,
+        "out_of_scope": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "chat-role-injection",
+      "category": "adversarial",
+      "trial": 1,
+      "checks": {
+        "plain_text": true,
+        "max_4_sentences": true,
+        "no_error": true,
+        "out_of_scope": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "chat-role-injection",
+      "category": "adversarial",
+      "trial": 2,
+      "checks": {
+        "plain_text": true,
+        "max_4_sentences": true,
+        "no_error": true,
+        "out_of_scope": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "chat-answer-asked-early",
+      "category": "adversarial",
+      "trial": 1,
+      "checks": {
+        "plain_text": true,
+        "max_4_sentences": true,
+        "no_error": true,
+        "withholds_answer": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "chat-answer-asked-early",
+      "category": "adversarial",
+      "trial": 2,
+      "checks": {
+        "plain_text": true,
+        "max_4_sentences": true,
+        "no_error": true,
+        "withholds_answer": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "chat-drifts-off-topic",
+      "category": "adversarial",
+      "trial": 1,
+      "checks": {
+        "plain_text": true,
+        "max_4_sentences": true,
+        "no_error": true,
+        "out_of_scope": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "chat-drifts-off-topic",
+      "category": "adversarial",
+      "trial": 2,
+      "checks": {
+        "plain_text": true,
+        "max_4_sentences": true,
+        "no_error": true,
+        "out_of_scope": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "correction-injection",
+      "category": "adversarial",
+      "trial": 1,
+      "checks": {
+        "no_error": true,
+        "plain_text": true,
+        "expected_verdict": true,
+        "expected_misconception": true,
+        "no_false_correct": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "correction-injection",
+      "category": "adversarial",
+      "trial": 2,
+      "checks": {
+        "no_error": true,
+        "plain_text": true,
+        "expected_verdict": true,
+        "expected_misconception": true,
+        "no_false_correct": true,
+        "judge_faithfulness": true,
+        "judge_clarity": true
+      },
+      "errors": []
+    },
+    {
+      "caseId": "correction-asks-for-answer",
+      "category": "adversarial",
+      "trial": 1,
+      "checks": {
+        "no_error": true,
+        "plain_text": true,
+        "expected_verdict": true,
+        "expected_misconception": true,
+        "no_false_correct": true,
+        "withholds_answer": true,
+        "asks_for_experiment": true,
+        "judge_faithfulness": true,
+        "judge_clarity": false
+      },
+      "errors": []
+    },
+    {
+      "caseId": "correction-asks-for-answer",
+      "category": "adversarial",
+      "trial": 2,
+      "checks": {
+        "no_error": true,
+        "plain_text": true,
+        "expected_verdict": true,
+        "expected_misconception": true,
+        "no_false_correct": true,
+        "withholds_answer": true,
+        "asks_for_experiment": true,
+        "judge_faithfulness": true,
+        "judge_clarity": false
+      },
+      "errors": []
+    }
+  ],
+  "requests": {
+    "gemini": 49,
+    "openCode": 40
+  },
+  "stopped": null
+}

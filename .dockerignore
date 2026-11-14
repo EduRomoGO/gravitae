@@ -1,0 +1,16 @@
+# Only the sources reach the build context: no local installs or build output,
+# and no .env files, so no key ends up in an image layer.
+.git
+node_modules
+.next
+.env*
+!.env.example
+.ci
+.devtools
+.vscode
+coverage
+logs
+test-results
+playwright-report
+reports
+*.tsbuildinfo

@@ -1,0 +1,12 @@
+# `npm run docker` builds the image and serves the app at http://localhost:3000
+# (`PORT=3100 npm run docker` if 3000 is taken).
+# The Gemini key is read from .env.local at runtime, never baked into the image;
+# without the file the app starts in reduced mode.
+services:
+  app:
+    build: .
+    ports:
+      - "${PORT:-3000}:3000"
+    env_file:
+      - path: .env.local
+        required: false

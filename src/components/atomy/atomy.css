@@ -1,0 +1,182 @@
+/* Styles of Atomy's drawing (atomy-svg.ts). */
+
+.atom-svg {
+  --atom-line: var(--atom-ink, #2a2840);
+  --atom-ring: var(--atom-orbit, #683ce2);
+}
+.atom-fill {
+  fill: var(--atom-fill, #e8ebff);
+}
+.atom-line {
+  stroke: var(--atom-line);
+}
+.atom-ring,
+.atom-electron {
+  stroke: var(--atom-ring);
+}
+.atom-electron {
+  fill: #e6175c;
+  stroke-width: 8;
+  offset-rotate: 0deg;
+  animation: atom-orbit 5.2s linear infinite;
+}
+.atom-electron-1 {
+  offset-path: path("M170 0A170 88 0 1 1 -170 0A170 88 0 1 1 170 0");
+  /* The resting position once the animation is removed: where its delay
+     starts the orbit. */
+  offset-distance: 7.7%;
+  animation-delay: -0.4s;
+}
+.atom-electron-2 {
+  offset-path: path("M170 0A170 88 0 1 0 -170 0A170 88 0 1 0 170 0");
+  offset-distance: 29.2%;
+  animation-duration: 7.2s;
+  animation-delay: -2.1s;
+  fill: #ffd23f;
+}
+/* The delays of the talking motions start each one halfway between its
+   ends, at rest, so starting to talk does not jolt Atomy. */
+.atom-sway {
+  transform-origin: 200px 200px;
+  animation: atom-sway 2.8s ease-in-out -0.7s infinite;
+}
+.atom-face {
+  animation: atom-bob 1.4s ease-in-out -0.35s infinite;
+}
+.atom-eyes {
+  transform-origin: 200px 182px;
+  animation: atom-blink 4.2s linear infinite;
+}
+.atom-pupils {
+  animation: atom-look 3.5s ease-in-out infinite;
+}
+.atom-mouth-rest {
+  display: none;
+}
+
+.atom-svg:is([data-state="idle"], [data-state="stopped"])
+  :is(.atom-sway, .atom-face, .atom-pupils) {
+  animation: none;
+}
+.atom-svg[data-state="stopped"] .atom-eyes {
+  animation: none;
+}
+.atom-svg:is([data-state="idle"], [data-state="stopped"]) .atom-mouth-talk {
+  display: none;
+}
+.atom-svg:is([data-state="idle"], [data-state="stopped"]) .atom-mouth-rest {
+  display: inline;
+}
+/* The breathing while idle: slow and shallow. The delay starts it halfway
+   up, at rest, so going idle does not drop Atomy. It moves the whole <svg>,
+   an HTML box, instead of a group inside it: a transform on an SVG element
+   repaints the drawing every frame, so its edges crawl from pixel to pixel
+   on a travel of barely 3px, while the <svg> gets a layer of its own that
+   the compositor slides as a whole, at subpixel steps. */
+.atom-float {
+  will-change: transform;
+}
+.atom-svg.atom-float[data-state="idle"] {
+  animation: atom-float 4.4s ease-in-out -1.1s infinite;
+}
+/* none instead of paused: a paused animation still keeps the element
+   animated. The Atomy component pins each electron where it was, so it
+   stops in place instead of jumping to its resting offset-distance. */
+.atom-svg[data-state="stopped"] .atom-electron {
+  animation: none;
+}
+
+/* Out of the viewport (the Atomy component sets data-offscreen) every
+   animation holds where it is, and carries on from there when it is back:
+   they move parts inside the drawing, which the compositor cannot take over,
+   so each frame would restyle and lay out a drawing nobody sees. */
+.atom-svg[data-offscreen],
+.atom-svg[data-offscreen] * {
+  animation-play-state: paused;
+}
+
+/* Both ends explicit: with only "to", the lap would start from the resting
+   offset-distance above, skip the stretch between 0% and it, and jump back
+   at every repetition. */
+@keyframes atom-orbit {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}
+@keyframes atom-float {
+  0%,
+  100% {
+    /* 1% of Atomy's height: 4 units of its 400-unit drawing. */
+    transform: translateY(1%);
+  }
+  50% {
+    transform: translateY(-1%);
+  }
+}
+@keyframes atom-sway {
+  0%,
+  100% {
+    transform: rotate(-2.5deg);
+  }
+  50% {
+    transform: rotate(2.5deg);
+  }
+}
+@keyframes atom-bob {
+  0%,
+  100% {
+    transform: translateY(2.5px);
+  }
+  50% {
+    transform: translateY(-2.5px);
+  }
+}
+@keyframes atom-blink {
+  0%,
+  93%,
+  97%,
+  100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.08);
+  }
+}
+@keyframes atom-look {
+  0%,
+  30%,
+  70%,
+  100% {
+    transform: translateX(0);
+  }
+  40%,
+  60% {
+    transform: translateX(4px);
+  }
+  82%,
+  90% {
+    transform: translateX(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atom-sway,
+  .atom-face,
+  .atom-eyes,
+  .atom-pupils,
+  .atom-electron {
+    animation: none;
+  }
+  .atom-svg.atom-float[data-state] {
+    animation: none;
+  }
+  .atom-mouth-talk {
+    display: none;
+  }
+  .atom-mouth-rest {
+    display: inline;
+  }
+}
